@@ -11,7 +11,7 @@ interface CreateUserDTO {
 
 @injectable()
 class CreateUserService {
-  async execute({ socket_id, name, email, avatar }: CreateUserDTO) {
+  public async execute({ socket_id, name, email, avatar }: CreateUserDTO) {
     const userAlreadyExists = await User.findOne({ email }).exec();
 
     if (userAlreadyExists) {
